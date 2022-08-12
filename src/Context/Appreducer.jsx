@@ -5,6 +5,11 @@ switch (action.type) {
       ...state,
       trensaction : state.trensaction.filter(trans => trans.id !== action.payload)
     }
+  case "add":
+    return{
+      ...state,
+      trensaction : [action.payload , ...state.trensaction]
+    }
   default:
     return state
 }}

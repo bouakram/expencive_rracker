@@ -2,12 +2,7 @@ import React , {createContext, useReducer} from 'react'
 import appreducer from './Appreducer'
 
 const initialState = {
-  trensaction :[
-   { id: 1, text: 'Flower', amount: -20 },
-   { id: 2, text: 'Salary', amount: 300 },
-   { id: 3, text: 'Book', amount: -10 },
-   { id: 4, text: 'Camera', amount: 150 }
-  ]
+  trensaction :[]
 }
 
 export const GlobalContext = createContext(initialState)
@@ -18,6 +13,9 @@ export const GlobaleProvider = ({children})=>{
   function delettransaction (id){
     dispatch({type : 'delet', payload : id})
   }
+  function addttransaction (trensaction){
+    dispatch({type : 'add', payload : trensaction})
+  }
 
-return (<GlobalContext.Provider value = {{transaction : state.trensaction, delettransaction }}> {children} 
+return (<GlobalContext.Provider value = {{transaction : state.trensaction, delettransaction , addttransaction }}> {children} 
   </GlobalContext.Provider>)}
